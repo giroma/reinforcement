@@ -11,11 +11,21 @@ collection = { data: { rooms:
   }
 }
 
-collection[:data][:rooms].each do |hash|
-    puts hash[:capacity] if hash.has_value?("201")
+collection[:data][:rooms].each do |hash_rooms|
+    puts hash_rooms[:capacity] if hash_rooms.has_value?("201")
 end
 
 
-# collection[:data][:events].each do |hash|
-#
-# end
+collection[:data][:events].each do |hash_events|
+  if hash_events[:room_id] == 1
+    if hash_events[:attendees] > 50
+      puts "No room"
+    else
+      puts "OK"
+    end
+
+  else
+    puts "not room 201"
+  end
+
+end
