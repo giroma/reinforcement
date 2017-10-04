@@ -8,17 +8,20 @@ class Location
 end
 
 class Trip < Location
-  @@locations = []
-  def self.add(name)
+  def initialize
+    @locations = []
+  end
+
+  def add(name)
     location = Location.new(name)
-    @@locations << location
+    @locations << location
     return location
   end
 
 
-  def self.travels
+  def travels
     puts 'Began trip'
-    @@locations.each_cons(2) do |location|
+    @locations.each_cons(2) do |location|
       puts "Travelled from #{location[0].name} to #{location[1].name}"
 
     end
@@ -26,9 +29,10 @@ class Trip < Location
   end
 end
 
-trip1 = Trip.add('Toronto')
-trip1 = Trip.add('Ottawa')
-trip1 = Trip.add('Montreal')
-trip1 = Trip.add('Quebec City')
+trip1= Trip.new
+trip1.add('Toronto')
+trip1.add('Ottawa')
+trip1.add('Montreal')
+trip1.add('Quebec City')
 
-Trip.travels
+trip1.travels
