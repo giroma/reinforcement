@@ -14,11 +14,12 @@ classroom.each_with_index do |row, row_index|
         p "whats your name?"
         name = gets.chomp
         classroom[row_index][seat_index] = name
-        break #end row loop
+        break
+         #end row loop
       end
     end
   end
-  break if sit == 'y' #also end outer loop
+  break if sit == 'y' #also end outer classroom loop
 end
 
 p classroom
