@@ -13,12 +13,7 @@ house_commons_response = HTTParty.get('https://represent.opennorth.ca/representa
 
 house_commons_json = JSON.parse(house_commons_response.body)
 
-persons = []
-house_commons_json['objects'].each do |person|
-  persons << person['name']
 
+house_commons_json['objects'].sort_by! {|hash| hash['name']}.each do |person|
+  p person['name']
 end
-
-  persons.sort.each do |person|
-    p person
-  end
