@@ -9,12 +9,16 @@ toronto_wards_json['objects'].each do |ward|
 
 end
 p '____________________________'
-house_commons_response = HTTParty.get('https://represent.opennorth.ca/representatives/house-of-commons')
+house_commons_response = HTTParty.get('https://represent.opennorth.ca/representatives/house-of-commons/?limit=1000')
 
 house_commons_json = JSON.parse(house_commons_response.body)
 
 persons = []
-house_commons_json['objects'].sort.each do |person|
-  p person['name']
+house_commons_json['objects'].each do |person|
+  persons << person['name']
 
 end
+
+  persons.sort.each do |person|
+    p person
+  end
